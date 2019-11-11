@@ -1,0 +1,63 @@
+<% include partials/_header %>
+
+    <div>
+        <div>
+            <div>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <td>ID</td>
+                            <td>Nombre</td>
+                            <td>Direccion</td>
+                            <td>Telefono</td>
+                            <td>Acciones</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (data) { %>
+                            <% for(var i = 0; i < data.length; i++) { %>
+                                <tr>
+                                    <td>
+                                        <%= (i + 1) %>
+                                    </td>
+                                    <td>
+                                        <%= data[i].name %>
+                                    </td>
+                                    <td>
+                                        <%= data[i].address %>
+                                    </td>
+                                    <td>
+                                        <%= data[i].phone %>
+                                    </td>
+                                    <td>
+                                        <a href="/update/<%= data[i].id %>">Editar</a>
+                                        <a href="/delete/<%= data[i].id %>">Eliminar</a>
+                                    </td>
+                                </tr>
+                                <% } %>
+                                    <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <div>
+
+                    <form action="/add" method="POST">
+                        <div>
+                            <input type="text" name="name" placeholder="Nombre" autofocus>
+                        </div>
+                        <div>
+                            <input type="text" name="address" placeholder="Direccion">
+                        </div>
+                        <div>
+                            <input type="text" name="phone" placeholder="Telefono">
+                        </div>
+
+                        <button type="submit">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <% include partials/_footer %>

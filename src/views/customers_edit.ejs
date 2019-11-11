@@ -1,0 +1,27 @@
+<% include partials/_header %>
+
+    <div>
+        <div>
+            <div>
+                <div>
+                    <form action="/update/<%= data.id %>" method="POST">
+                        <div>
+                            <input type="text" name="name" value="<%= data.name%>" placeholder="Nombre" autofocus>
+                        </div>
+                        <div>
+                            <input type="text" name="address" value="<%= data.address%>" placeholder="Direccion">
+                        </div>
+                        <div>
+                            <input type="text" name="phone" value="<%= data.phone%>" placeholder="Telefono">
+                        </div>
+
+                        <button type="submit">
+            Guardar
+          </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <% include partials/_footer %>
